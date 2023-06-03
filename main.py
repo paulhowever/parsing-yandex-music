@@ -29,14 +29,15 @@ params = {
 }
 
 response = requests.get('https://music.yandex.ru/handlers/main.jsx', params=params, headers=headers)
-pprint(response.status_code)
-#pprint(response.json()['chartPositions'])
+
+lst = []
+
 for track in response.json()['chartPositions']:
     position = track['chartPosition']['position']
     title = track['track']['title']
     author = track['track']['artists'][0]['name']
     artist = [artist['name'] for artist in track['track']['artists']]
-    authors = ','.join(artist)
-
-    print(f'№-{position} - {title} - {authors}')
+    authors = ', '.join(artist)
+    strokaCharta = f'№-{position} - {title} - {authors}'
+    lst.append(strokaCharta)
 
