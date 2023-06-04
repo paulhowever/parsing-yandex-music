@@ -28,5 +28,5 @@ def text(message):
             bot.register_next_step_handler(msg, getResult)
 
     else: bot.send_message(message.chat.id, 'я вас не понял((')
-
-bot.polling(none_stop=True)
+if __name__ == __main__:        
+    bot.polling(none_stop=True)
